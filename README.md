@@ -17,7 +17,10 @@ $ npm install -g livedown
 `livedown-start` runs a livedown process in the background listening on PORT `livedown_port` option.
 Your default browser is launched to display the current buffer file rendered to HTML.
 
-Use `livedown-stop` to kill the background process.
+`livedown-start-with-write-on-idle` runs `livedown-start` and additionally sets up hooks
+to write the buffer on `InsertIdle` and `NormalIdle` for immediate feedback.
+
+Use `livedown-stop` to kill the background process and remove any idle hooks associated with the buffer.
 
 ## See also
 
