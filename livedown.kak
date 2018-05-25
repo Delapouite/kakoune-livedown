@@ -1,5 +1,13 @@
 decl int livedown_port 8642
 
+%sh{
+  for dep in livedown; do
+    if ! command -v $dep > /dev/null 2>&1; then
+      echo "echo -debug %{Dependency unmet: $dep, please install it to use livedown.kak}"
+    fi
+  done
+}
+
 def livedown-start %{ %sh{
   (
     livedown start --open --port "$kak_opt_livedown_port" "$kak_buffile"
