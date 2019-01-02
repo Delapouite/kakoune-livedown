@@ -1,6 +1,6 @@
 decl int livedown_port 8642
 
-%sh{
+nop %sh{
   for dep in livedown; do
     if ! command -v $dep > /dev/null 2>&1; then
       echo "echo -debug %{Dependency unmet: $dep, please install it to use livedown.kak}"
@@ -8,7 +8,7 @@ decl int livedown_port 8642
   done
 }
 
-def livedown-start %{ %sh{
+def livedown-start %{ nop %sh{
   (
     livedown start --open --port "$kak_opt_livedown_port" "$kak_buffile"
   ) >/dev/null 2>&1 </dev/null &
@@ -21,7 +21,7 @@ def livedown-start-with-write-on-idle %{
 }
 
 def livedown-stop %{
-  %sh{
+  nop %sh{
     livedown stop --port "$kak_opt_livedown_port"
   }
   rmhooks buffer livedown-idle
