@@ -6,6 +6,12 @@
 
 Add `livedown.kak` to your autoload dir: `~/.config/kak/autoload/`.
 
+Or via [plug.kak](https://github.com/andreyorst/plug.kak):
+
+```
+plug 'delapouite/kakoune-livedown'
+```
+
 `livedown` must be installed on your system:
 
 ```
@@ -25,7 +31,7 @@ Use `livedown-stop` to kill the background process and remove any idle hooks ass
 ## See also
 
 - [vim-livedown](https://github.com/shime/vim-livedown)
-- [markdown.kak](https://github.com/mawww/kakoune/blob/master/rc/base/markdown.kak)
+- [markdown.kak](https://github.com/mawww/kakoune/blob/master/rc/filetype/markdown.kak)
 
 ## Licence
 
