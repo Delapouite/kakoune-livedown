@@ -1,4 +1,5 @@
 decl int livedown_port 8642
+decl str livedown_browser ""
 
 nop %sh{
   for dep in livedown; do
@@ -10,7 +11,11 @@ nop %sh{
 
 def livedown-start %{ nop %sh{
   (
-    livedown start --open --port "$kak_opt_livedown_port" "$kak_buffile"
+    if test -z "$kak_opt_livedown_browser"; then
+        livedown start --open --port "$kak_opt_livedown_port" "$kak_buffile"
+    else
+        livedown start --open --port "$kak_opt_livedown_port" --browser "$kak_opt_livedown_browser" "$kak_buffile"
+    fi
   ) >/dev/null 2>&1 </dev/null &
 }}
 
